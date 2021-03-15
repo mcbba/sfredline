@@ -469,21 +469,18 @@ $(window).on('load', function() {
    */
   function changeAttribution() {
     var attributionHTML = $('.leaflet-control-attribution')[0].innerHTML;
-    var credit = 'View <a href="'
-      // Show Google Sheet URL if the variable exists and is not empty, otherwise link to Chapters.csv
-      + (typeof googleDocURL !== 'undefined' && googleDocURL ? googleDocURL : './csv/Chapters.csv')
-      + '" target="_blank">data</a>';
+    var credit = ' ';
 
     var name = getSetting('_authorName');
     var url = getSetting('_authorURL');
 
     if (name && url) {
       if (url.indexOf('@') > 0) { url = 'mailto:' + url; }
-      ' by <a href="' + url + '">' + name + '</a> | ';
+      credit += ' by <a href="' + url + '">' + name + '</a> | ';
     } else if (name) {
-      ' by ' + name + ' | ';
+      credit += ' by ' + name + ' | ';
     } else {
-      ' | ';
+      credit += ' | ';
     }
 
     credit += 'View <a href="' + getSetting('_githubRepo') + '">code</a>';
