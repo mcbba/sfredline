@@ -479,11 +479,11 @@ $(window).on('load', function() {
 
     if (name && url) {
       if (url.indexOf('@') > 0) { url = 'mailto:' + url; }
-      credit += ' by <a href="' + url + '">' + name + '</a> | ';
+      ' by <a href="' + url + '">' + name + '</a> | ';
     } else if (name) {
-      credit += ' by ' + name + ' | ';
+      ' by ' + name + ' | ';
     } else {
-      credit += ' | ';
+      ' | ';
     }
 
     credit += 'View <a href="' + getSetting('_githubRepo') + '">code</a>';
